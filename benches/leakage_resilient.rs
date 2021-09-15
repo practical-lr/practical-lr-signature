@@ -78,7 +78,7 @@ fn bench_curve25519(c: &mut Criterion) {
     }
 
     for par in params {
-        let group_name = format!("Schnorr(n={})", par);
+        let group_name = format!("Okamoto(n={})", par);
         let mut group = c.benchmark_group(&group_name);
 
         let (sk, pk) = okamoto::keygen(par);
@@ -90,7 +90,7 @@ fn bench_curve25519(c: &mut Criterion) {
     }
 
     for par in params {
-        let group_name = format!("Okamoto(n={})", par);
+        let group_name = format!("Schnorr(n={})", par);
         let mut group = c.benchmark_group(&group_name);
 
         let (sk, pk) = schnorr::keygen(par);
