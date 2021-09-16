@@ -1,7 +1,7 @@
 use criterion::Criterion;
 use criterion::{criterion_group, criterion_main};
 
-use practical_lr::{bls, bb3, ecdsa, schnorr, okamoto_aim};
+use practical_lr::{bls, bb3_aim, ecdsa, schnorr, okamoto_aim};
 
 fn bench_bls12_381(c: &mut Criterion) {
     let params: [usize; 3] = [200, 400, 1998];
@@ -24,10 +24,10 @@ fn bench_bls12_381(c: &mut Criterion) {
         let group_name = format!("AIM_BB3(n={})", par);
         let mut group = c.benchmark_group(&group_name);
 
-        let (sk, _) = bb3::keygen(par);
+        let (sk, _) = bb3_aim::keygen(par);
         // let signature = bb3::sign(&sk, &msg.as_bytes());
         // group.bench_function("KeyGen", |b| b.iter(|| ecdsa::keygen(par)));
-        group.bench_function("Sign", |b| b.iter(|| bb3::sign(&sk, &msg.as_bytes())));
+        group.bench_function("Sign", |b| b.iter(|| bb3_aim::sign(&sk, &msg.as_bytes())));
         // group.bench_function("Verify", |b| b.iter(|| bb3::verify(&pk, &msg.as_bytes(), &signature)));
 
         group.finish();

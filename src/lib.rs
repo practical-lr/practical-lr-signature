@@ -97,7 +97,8 @@ pub fn bls12_381_scalar_list_to_bytes(a: &[Scalar381]) -> Vec<u8> {
 
 
 pub mod bls;
-pub mod bb3;
+pub mod bb3_aim;
+pub mod bb3_cml;
 pub mod ecdsa;
 pub mod schnorr;
 pub mod okamoto_aim;

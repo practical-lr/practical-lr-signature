@@ -1,7 +1,7 @@
 use criterion::Criterion;
 use criterion::{criterion_group, criterion_main};
 
-use practical_lr::{bls, bb3, ecdsa, schnorr, okamoto_aim};
+use practical_lr::{bls, bb3_aim, ecdsa, schnorr, okamoto_aim};
 
 fn bench_plain_signature(c: &mut Criterion) {
     let msg = "Hello, world!";
@@ -23,11 +23,11 @@ fn bench_plain_signature(c: &mut Criterion) {
         let group_name = format!("BB3(n={})", par);
         let mut group = c.benchmark_group(&group_name);
 
-        let (sk, pk) = bb3::keygen(par);
-        let signature = bb3::sign(&sk, &msg.as_bytes());
+        let (sk, pk) = bb3_aim::keygen(par);
+        let signature = bb3_aim::sign(&sk, &msg.as_bytes());
         // group.bench_function("KeyGen", |b| b.iter(|| ecdsa::keygen(par)));
-        group.bench_function("Sign", |b| b.iter(|| bb3::sign(&sk, &msg.as_bytes())));
-        group.bench_function("Verify", |b| b.iter(|| bb3::verify(&pk, &msg.as_bytes(), &signature)));
+        group.bench_function("Sign", |b| b.iter(|| bb3_aim::sign(&sk, &msg.as_bytes())));
+        group.bench_function("Verify", |b| b.iter(|| bb3_aim::verify(&pk, &msg.as_bytes(), &signature)));
 
         group.finish();
     }

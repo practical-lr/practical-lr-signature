@@ -39,7 +39,7 @@ pub fn verify(pk: &(G2Affine, G2Affine), msg: &[u8], signature: &(G1Affine, Scal
 mod tests {
     use super::*;
     #[test]
-    fn test_lr_bb3() {
+    fn test_lr_bb3_aim() {
         let n = 100;
         let msg = "Hello, world!";
         let (sk, pk) = keygen(n);
