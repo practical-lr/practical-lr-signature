@@ -1,9 +1,9 @@
 # Introduction
-This repository implements a practical leakage resilient signature with *Rust* languge.
+This repository implements a practical LR-Sig with *Rust* languge.
 
-For LR-Okamoto, LR-Schnorr and LR-ECDSA, the Curve25519 is adopted to acheive better performance.
+For ECC-based schemes (LR-Okamoto, LR-Schnorr and LR-ECDSA), the Curve25519 is adopted to acheive better performance.
 
-For LR-BLS and LR-BB3 which rely on the pairing, we choose BLS12-381 as the pairing friendly curve.
+For pairing-based schemes (LR-BLS and LR-BB3), we choose BLS12-381 as the pairing friendly curve.
 
 To benchmark all the scheme, just simply run
 `

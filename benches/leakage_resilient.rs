@@ -94,8 +94,8 @@ fn bench_curve25519(c: &mut Criterion) {
         let mut group = c.benchmark_group(&group_name);
 
         let (sk, pk) = schnorr::keygen(par);
-        let signature = schnorr::sign(&sk, &msg.as_bytes());
-        group.bench_function("Sign", |b| b.iter(|| schnorr::sign(&sk, &msg.as_bytes())));
+        let signature = schnorr::sign(&pk, &sk, &msg.as_bytes());
+        group.bench_function("Sign", |b| b.iter(|| schnorr::sign(&pk, &sk, &msg.as_bytes())));
         group.bench_function("Verify", |b| b.iter(|| schnorr::verify(&pk, &msg.as_bytes(), &signature)));
 
         group.finish();
