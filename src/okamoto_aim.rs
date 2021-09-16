@@ -72,7 +72,7 @@ pub fn verify(pk: &RistrettoPoint, msg: &[u8], signature: &(Scalar, Scalar, Scal
 mod tests {
     use super::*;
     #[test]
-    fn test_lr_okamoto() {
+    fn test_lr_okamoto_aim() {
         let n = 100;
         let msg = "Hello, world!";
         let (sk, pk) = keygen(n);

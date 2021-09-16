@@ -100,4 +100,5 @@ pub mod bls;
 pub mod bb3;
 pub mod ecdsa;
 pub mod schnorr;
-pub mod okamoto;
+pub mod okamoto_aim;
+pub mod okamoto_cml;

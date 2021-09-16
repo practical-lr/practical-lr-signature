@@ -19,5 +19,13 @@ lazy_static = "1.4"
 criterion = "0.3"
 
 [[bench]]
-name = "leakage_resilient"
+name = "plain"
+harness = false
+
+[[bench]]
+name = "leakage_resilient_aim"
+harness = false
+
+[[bench]]
+name = "leakage_resilient_cml"
 harness = false
