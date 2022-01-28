@@ -4,7 +4,7 @@ use criterion::{criterion_group, criterion_main};
 use practical_lr::{bls, bb3_aim, ecdsa, schnorr, okamoto_aim};
 
 fn bench_bls12_381(c: &mut Criterion) {
-    let params: [usize; 3] = [200, 400, 1998];
+    let params: [usize; 3] = [127, 254, 1269];
     let msg = "Hello, world!";
 
     for par in params {
@@ -36,7 +36,7 @@ fn bench_bls12_381(c: &mut Criterion) {
 }
 
 fn bench_curve25519(c: &mut Criterion) {
-    let params: [usize; 3] = [146, 291, 1455];
+    let params: [usize; 3] = [74, 147, 732];
     let msg = "Hello, world!";
 
     for par in params {
